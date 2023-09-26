@@ -60,3 +60,49 @@
   color: rgb(12, 153, 17); /* Text color */
   /* You can add additional styles as needed */
 }
+
+.custom-text-color {
+  color: rgb(12, 153, 17); /* Text color */
+  /* You can add additional styles as needed */
+}
+
+.custom-spacing {
+  margin-right: 10px; /* Adjust the margin value as needed */
+}
+
+.custom-button-border {
+  border: 2px solid #005634; /* Change #FF0000 to your desired border color */
+  background-color: transparent; /* Make the background transparent to show the border color */
+  color: #007020; /* Change #FF0000 to your desired text color */
+}
+.custom-left-margin {
+  margin-left: 20px; /* Adjust the margin value as needed */
+}
+
+.custom-left-margin-button1 {
+  margin-left: 350px; /* Adjust the margin value as needed */
+}
+
+.custom-left-margin-button2 {
+  margin-left: 10px; /* Adjust the margin value as needed */
+}
+
+.carousel-item img {
+  max-width: 1000px; /* Adjust the value as needed */
+  height: 400px; /* Maintain aspect ratio */
+}
+
+.custom-carousel {
+  max-width: 1000px; /* Adjust the value as needed */
+  margin-top: 50px; /* Center the carousel horizontally */
+  margin-left: 240px
+}
+
+.kalam-font {
+  font-family: 'Kalam', cursive;
+}
+
+.roboto-font{
+  color: 'green';
+  font-Family: 'Roboto', sans-serif;
+}
