@@ -2,17 +2,38 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-export default function LoginRegister() {
+export default function LoginRegister({login, setLogin}) {
 
   const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState(''); // Default selected option
+  const [modalState, setModalState] = useState("")
 
-  const handleLogin = () => {
-    // Your form submission logic here
+  const handleLogin = (e) => {
+    e.preventDefault()
+    // Backend Logic
 
-    // After successful login, navigate to the "Deal" route
-    navigate('/deal');
+    // After successful login, navigate to the home page
+    setLogin(true)
+    setModalState("modal")
+    navigate('/');
   };
+
+  const handleRegister =(e) =>{
+    e.preventDefault()
+    // Backed Logic
+
+    // After successful login, navigate to the home page
+    setLogin(true)
+    navigate('/');
+  }
+
+  const handleLogout =() =>{
+    // Backend Logic
+    
+    // After succesful logout, navigate to the home page
+    setLogin(false)
+    navigate('/')
+  }
 
 
   const handleOptionChange = (event) => {
@@ -23,13 +44,9 @@ export default function LoginRegister() {
     event.preventDefault();
 
     if (selectedOption === 'Restraunt/ Shop') {
-      // Perform actions for "Restraunt Owner/ Retailer" option
       console.log('Selected option: Restraunt Owner/ Retailer');
-      // Add your logic here
     } else if (selectedOption === 'NGO') {
-      // Perform actions for "NGO" option
       console.log('Selected option: NGO');
-      // Add your logic here
     }
   };
 
@@ -44,7 +61,7 @@ export default function LoginRegister() {
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title" id="exampleModalToggleLabel">Login</h5>
-          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" className="btn-close" data-bs-dismiss={"modal"} aria-label="Close"></button>
         </div>
         <div className="modal-body">
 {/*---------------------------------login form------------------------------------------------------------------------------------------*/}
@@ -58,7 +75,7 @@ export default function LoginRegister() {
                 <input type="password" className="form-control" id="loginPassword" placeholder="Password" />
               </div>
               <div className="text-center"> 
-                <button type="submit" className="btn btn-primary mt-2 custom-button-width" onClick={handleLogin}>Login</button>
+                <button type="submit" className="btn custom-btn-color mt-2 custom-button-width" data-bs-dismiss={modalState} onClick={handleLogin}>Login</button>
               </div>
         </form>
         </div>
@@ -69,7 +86,7 @@ export default function LoginRegister() {
                 </p>
             </div>
             <div className='container text-center'>
-                <button className="btn btn-primary custom-button-width " data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Register here</button>           
+                <button className="btn btn-success custom-button-width " data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Register here</button>           
             </div>
         </div>
       </div>
@@ -99,8 +116,8 @@ export default function LoginRegister() {
           </div>
         </div>
         <div className="modal-footer">
-          <button className="btn btn-primary ml-0" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Login</button>
-          <button className="btn btn-primary" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal" data-bs-dismiss="modal" disabled={isButtonDisabled}>Next</button>
+          <button className="btn btn-success ml-0" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Login</button>
+          <button className="btn btn-success" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal" data-bs-dismiss="modal" disabled={isButtonDisabled}>Next</button>
         </div>
       </div>
     </div>
@@ -157,19 +174,30 @@ export default function LoginRegister() {
                 </label>
               </div>
               <div className='text-center'>
-                <button type="submit" className="btn btn-success mt-4 custom-button-width">Register</button>
+                <button type="submit" className="btn btn-success mt-4 custom-button-width"  data-bs-dismiss="modal" onClick={handleRegister}>Register</button>
               </div>           
             </form>
         </div>
         <div className="modal-footer">
           <div className='container text-center'>
-           <button className="btn btn-primary ml-0 custom-button-width" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Login</button>
+           <button className="btn custom-btn-color ml-0 custom-button-width" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to Login</button>
           </div>
         </div>   
       </div>
     </div>
   </div>
-  <a className="btn custom-btn-color" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Login or Register</a>
+  {
+    login ? (
+      <>
+        <h6 className='mb-2 mt-2 user-margin text-white'> User Name </h6>
+        <a className="btn custom-btn-color" role="button" onClick={handleLogout}>Logout</a>
+      </>
+      
+    ):(
+      <a className="btn custom-btn-color" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Login</a>
+    )
+  }
+  
     
   </>
   )

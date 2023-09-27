@@ -1,8 +1,52 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function MakeADeal() {
+
+    const navigate = useNavigate()
+
+    const[makeDeal, setMakeDeal] = useState(false)
+    const[dealMatrics, setDealMatrix] = useState(false)
+    const [showAlert, setShowAlert] = useState(false);
+    
+
+    const dealHandler =(e)=>{
+        e.preventDefault();
+
+        // Backend Logic
+
+        // If deal successful.
+        setMakeDeal(true)
+        navigate('/confirmation')
+    }
+
+    const dealMetricsHandler=(e)=>{
+        e.preventDefault();
+        setDealMatrix(true)
+        setShowAlert(true)
+    }
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+      };
+
+
   return (
-    <div className="container mt-4">
+    <>
+    {
+        showAlert ? (
+            <>           
+             <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Deal Matrics feature comeing soon!</strong> Stay Tuned.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={handleCloseAlert}></button>
+            </div>       
+            </>
+
+        ):(
+            ""
+        )
+    }
+     <div className="container mt-4">
     <div className="row justify-content-center">
         <div className="col-md-6">
         <form>
@@ -58,11 +102,14 @@ export default function MakeADeal() {
             </div>
         </div>
         <hr />
-            <button className="btn custom-btn-color custom-left-margin-button1">Order Metrics</button>
-            <button className="btn custom-btn-color custom-left-margin-button2">Make Order</button>
+            <button className="btn custom-btn-color custom-left-margin-button1 custom-margin-bottom" onClick={dealMetricsHandler}>Deal Metrics</button>
+            <button className="btn custom-btn-color custom-left-margin-button2 custom-margin-bottom" onClick={dealHandler}>Make Deal</button>
         </form>
         </div>
     </div>
     </div>
+
+    </>
+   
   )
 }

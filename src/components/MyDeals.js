@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function MyDeals() {
   return (
-    <div className="row justify-content-center">
+    <>
+      <div className="row justify-content-center">
         <div className="col-md-6">
 
         <table className="table table-hover">
@@ -37,5 +38,11 @@ export default function MyDeals() {
        </table>
         </div>
     </div>
+
+    <div className='container blank-height'>
+
+    </div>
+    </>
+    
   )
 }

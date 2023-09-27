@@ -95,7 +95,6 @@
 .custom-carousel {
   max-width: 1000px; /* Adjust the value as needed */
   margin-top: 50px; /* Center the carousel horizontally */
-  margin-left: 240px
 }
 
 .kalam-font {
@@ -105,4 +104,43 @@
 .roboto-font{
   color: 'green';
   font-Family: 'Roboto', sans-serif;
+}
+
+.solution-image{
+  max-width: 100%; /* Adjust the value as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.custom-card {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the card horizontally */
+}
+
+.custom-margin-top {
+  margin-top: 100px;
+}
+
+.custom-margin-bottom {
+  margin-bottom: 50px;
+}
+
+.smaller-font {
+  font-size: 12px; /* Adjust the size as needed */
+}
+
+.custom-margin-top-1 {
+  margin-top: 50px;
+}
+
+.blank-height {
+  height: 500px;
+}
+
+.user-margin {
+  margin-right: 50px;
+}
+
+.custom-text-container {
+  max-width: 820px; /* Adjust the max-width as needed */
+  overflow-x: auto; /* Add horizontal scrollbar if content overflows */
 }
