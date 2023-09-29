@@ -10,6 +10,10 @@ export default function Navbar({login, setLogin}) {
     navigate('/');
   }
 
+  const navItemHandler =() =>{
+    window.alert("Please Login or Register first!")
+  }
+
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light navbar ">
@@ -36,35 +40,21 @@ export default function Navbar({login, setLogin}) {
 
               {
                 login ? (
-                    
-
                       <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li className='nav-item'><Link className="nav-link" to="/mydeals">My Deals</Link></li>
                         <li className='nav-item'><Link className="nav-link" to="/makedeal">Make a Deal</Link></li>
                         <li><hr className="dropdown-divider"/></li>
                         <li><a className="dropdown-item" href="#">Close</a></li>
-                      </ul>
-                
-
+                      </ul>                
                 ):(
-
-
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li className='nav-item'><Link className="nav-link" to="/">My Deals (Login First)</Link></li>
-                      <li className='nav-item'><Link className="nav-link" to="/">Make a Deal (Login First)</Link></li>
+                      <li className='nav-item' onClick={navItemHandler}><Link className="nav-link" to="/">My Deals </Link></li>
+                      <li className='nav-item' onClick={navItemHandler}><Link className="nav-link" to="/">Make a Deal </Link></li>
                       <li><hr className="dropdown-divider"/></li>
                       <li><a className="dropdown-item" href="#">Close</a></li>
                     </ul>
-
-
                 )
               }
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li className='nav-item'><Link className="nav-link" to="/mydeals">My Deals</Link></li>
-                <li className='nav-item'><Link className="nav-link" to="/makedeal">Make a Deal</Link></li>
-                <li><hr className="dropdown-divider"/></li>
-                <li><a className="dropdown-item" href="#">Close</a></li>
-              </ul>
            </li>
           </ul>
             <LoginRegister login={login} setLogin={setLogin}/>
